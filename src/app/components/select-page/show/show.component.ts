@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { StarWarsDataService } from '../../../services/star-wars-data.service';
 
 @Component({
   selector: 'app-show',
@@ -8,17 +9,25 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class ShowComponent implements OnInit {
-  charName: Object;
+  charName: string;
+  charData;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private swData: StarWarsDataService) { }
   
   // anything that need to wait for the component to initialize //
   ngOnInit() {
-    this.getParams();
-  }
 
+    this.getParams();
+
+    this.swData.getInfo().subscribe(data => {
+      this.charData = data;
+      console.log(data);
+    });
+
+  }
+  
   getParams() {
-    let name = parseInt(this.route.snapshot.paramMap.get('name'));
+    let name = this.route.snapshot.paramMap.get('name');
     this.charName = name;
   }
 

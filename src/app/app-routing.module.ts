@@ -5,14 +5,22 @@ import { SelectPageComponent } from './components/select-page/select-page.compon
 import { ShowComponent } from './components/select-page/show/show.component';
 
 const routes: Routes = [
-  { path: "home", component: HomePageComponent },
-  { path: "", pathMatch: "full", redirectTo: "home" },
+  { 
+    path: "home", 
+    component: HomePageComponent 
+  },
+  { 
+    path: "", 
+    pathMatch: "full", 
+    redirectTo: "home" 
+  },
   { 
     path: "select", 
     component: SelectPageComponent,
-    children: [
-      { path: ':name', component: ShowComponent },
-    ]
+ },
+ {
+   path: "select/:name",
+   component: ShowComponent,
  },
 
 ];

@@ -20,8 +20,8 @@ export class SelectPageComponent implements OnInit {
   }
   
   // adds the characters name to the url //
-  onSelect(character) {
-    this.router.navigate(['/select', character.name])
+  onSelect(char) {
+    this.router.navigate(['/select', char.name])
   }
 
   // get's the list of characters from the Json file //
