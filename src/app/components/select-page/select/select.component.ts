@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CharDataService } from '../../../services/char-data.service' 
 
 @Component({
   selector: 'app-select',
@@ -7,14 +6,13 @@ import { CharDataService } from '../../../services/char-data.service'
   styleUrls: ['./select.component.css']
 })
 export class SelectComponent implements OnInit {
-  charList: Object;
+  
 
-  constructor(private char: CharDataService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.char.getChar().subscribe( data => {
-      this.charList = data;
-    })
+    
+    
   }
 
 }
