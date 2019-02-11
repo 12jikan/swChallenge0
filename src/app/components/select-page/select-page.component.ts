@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CharDataService } from '../../services/char-data.service';
 import { Router } from '@angular/router';
+import { sanitizeUrl } from '@angular/core/src/sanitization/sanitization';
 
 
 @Component({
@@ -10,25 +11,26 @@ import { Router } from '@angular/router';
 })
 
 export class SelectPageComponent implements OnInit {
-  charList;
+  charList: any;
 
-  constructor(private char: CharDataService, private router: Router) { }
+  constructor(private charInfo: CharDataService, private router: Router) { }
 
   ngOnInit() {
     this.getChar();
+    this.charInfo.getPpl().subscribe(x => console.log(x))
   }
   
   // get's the list of characters from the Json file //
   getChar() {
-    this.char.getChar().subscribe(data => {
-      this.charList = data;
-      console.log(this.charList)
+    this.charInfo.getChar().subscribe(data => {
+      this.charList = data.characters;
     });
-  }
+  };
   
   // adds the characters name to the url //
   onSelect(char) {
     this.router.navigate(['/select', char.name]);
+    this.charInfo.setUrl(char.url);
   }
 
 

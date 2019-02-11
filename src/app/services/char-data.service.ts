@@ -6,11 +6,27 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CharDataService {
+  
+  baseUrl;
+  dirUrl;
 
   constructor(private http: HttpClient) { }
-
+  setUrl(url) {
+    this.dirUrl = url;
+  }
+  
   getChar() {
     return this.http.get('../../assets/data/characters.json');
   };
+
+  getPpl() {
+    return this.http.get('https://swapi.co/api/people/')
+  }
+
+  getPerson() {
+    return this.http.get(this.dirUrl);
+  }
+
+  
 
 }

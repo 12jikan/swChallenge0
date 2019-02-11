@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CharDataService } from 'src/app/services/char-data.service';
 
 @Component({
   selector: 'app-show',
@@ -8,26 +9,31 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class ShowComponent implements OnInit {
-  charName: string;
-  charData;
+  charDeets: any;
+  charFilms: any; 
+  charData: any;
 
   constructor(
     private route: ActivatedRoute,
+    private charInfo: CharDataService,
     ) { }
 
   ngOnInit() {
-
-    this.getParams();
-    this.getList();
+    // this.getParams();
+    this.getPer();
 
   }
 
-  getList() {
+  getPer() {
+    this.charInfo.getPerson().subscribe(data => {
+      this.charDeets = data;
+      console.log(this.charDeets);
+    })
   }
 
-  getParams() {
-    let name = this.route.snapshot.paramMap.get('name');
-    this.charName = name;
-  }
+  // getParams() {
+  //   let name = this.route.snapshot.paramMap.get('name');
+  //   this.charName = name;
+  // }
 
 }

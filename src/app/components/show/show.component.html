@@ -3,14 +3,14 @@
         <div class="container has-text-centered">
             <div class="columns is-multiline is-centered">
 
-                <div class="column is-3">
+                <div class="column is-5">
 
-                    <div *ngIf="!charName">
+                    <div *ngIf="!charDeets">
                         <h1 class="is-size-1 has-text-weight-light">Loading...</h1>
                     </div>
 
-                    <div *ngIf="charName">
-                        <h1 class="is-size-1 has-text-weight-light">{{ charName }}</h1>
+                    <div *ngIf="charDeets">
+                        <h1 class="is-size-1 has-text-weight-light">{{ charDeets.name }}</h1>
                         <hr>
                         <div>
                         </div>
