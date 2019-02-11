@@ -11,7 +11,7 @@
 
           <div *ngIf="charList">
             <div *ngFor="let char of charList.characters">
-                <a (click)="onSelect(char)" class="box has-text-dark is-size-4 charLink">{{ char.name }}</a>
+              <a (click)="onSelect(char)" class="box has-text-dark is-size-4 charLink">{{ char.name }}</a>
             </div>
           </div>
 

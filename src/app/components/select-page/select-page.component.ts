@@ -10,26 +10,25 @@ import { Router } from '@angular/router';
 })
 
 export class SelectPageComponent implements OnInit {
-  charList: Object;
+  charList;
 
   constructor(private char: CharDataService, private router: Router) { }
 
   ngOnInit() {
     this.getChar();
-
+  }
+  
+  // get's the list of characters from the Json file //
+  getChar() {
+    this.char.getChar().subscribe(data => {
+      this.charList = data;
+      console.log(this.charList)
+    });
   }
   
   // adds the characters name to the url //
   onSelect(char) {
-    this.router.navigate(['/select', char.name])
-  }
-
-  // get's the list of characters from the Json file //
-  getChar() {
-    this.char.getChar().subscribe( data => {
-      this.charList = data;
-      console.log(data);
-    })
+    this.router.navigate(['/select', char.name]);
   }
 
 

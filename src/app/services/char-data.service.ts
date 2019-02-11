@@ -11,6 +11,6 @@ export class CharDataService {
 
   getChar() {
     return this.http.get('../../assets/data/characters.json');
-  }
+  };
 
 }
