@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { SelectPageComponent } from './components/select-page/select-page.component';
 import { ShowComponent } from './components/show/show.component';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 
 const routes: Routes = [
   { 
@@ -22,7 +23,10 @@ const routes: Routes = [
    path: "select/:name",
    component: ShowComponent,
  },
-
+ {
+   path: "select/:name/:movie",
+   component: MovieDetailsComponent,
+ }
 ];
 
 @NgModule({

@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { CharDataService } from './services/char-data.service';
 import { PagenotFoundComponent } from './components/pagenot-found/pagenot-found.component';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PagenotFoundComponent } from './components/pagenot-found/pagenot-found.
     SelectPageComponent,
     ShowComponent,
     NavbarComponent,
-    PagenotFoundComponent
+    PagenotFoundComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
