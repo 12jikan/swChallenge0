@@ -6,7 +6,7 @@
                 <div class="column is-5">
 
                     <div *ngIf="!charDeets">
-                        <h1 class="is-size-1 has-text-weight-light">Loading...</h1>
+                        <h1 class="is-size-5 has-text-weight-light">Loading...</h1>
                     </div>
 
                     <div *ngIf="charDeets">
@@ -15,15 +15,16 @@
                         <hr>
                         
                         <div *ngIf="charDeets">
-                            <div *ngFor="let film of charDeets.films">
-                                <h1>{{ film }}</h1>
+                            <div *ngFor="let film of filmsNew" class="box">
+                                <h1 class="is-size-4">{{ film.title }}</h1>
+                                <h2 class="is-size-6 has-text-weight-light">{{ film.release_date | date: 'EEEE, MMMM d, y' }}</h2>
                             </div>
                         </div>
 
                     </div>
 
                     <div>
-                        <a routerLink="/select" class="button is-outlined is-rounded is-danger is-large">back</a>
+                        <a routerLink="/select" class="button is-outlined is-rounded is-warning is-large">back</a>
                     </div>
 
                 </div>

@@ -11,7 +11,7 @@ export class CharDataService {
   dirUrl;
 
   constructor(private http: HttpClient) { }
-  
+
   setUrl(url) {
     this.dirUrl = url;
   }
@@ -22,6 +22,10 @@ export class CharDataService {
 
   getPpl() {
     return this.http.get('https://swapi.co/api/people/')
+  }
+  
+  getData(url) {
+    return this.http.get(url)
   }
 
   getPerson() {
