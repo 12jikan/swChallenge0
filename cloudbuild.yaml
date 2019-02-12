@@ -8,5 +8,5 @@ steps:
   args: ['run', 'build']
 
 # Deploy
-- name: 'gcr.io/swapps/firebase'
+- name: 'gcr.io/causal-smoke-231510/firebase'
   args: ['deploy']
