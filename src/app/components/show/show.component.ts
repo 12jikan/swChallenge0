@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CharDataService } from 'src/app/services/char-data.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-show',
@@ -17,6 +18,7 @@ export class ShowComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private charInfo: CharDataService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -30,16 +32,21 @@ export class ShowComponent implements OnInit {
       console.log("These are the films: ", this.charFilms)
 
       this.charFilms.forEach(link => {
-        this.charInfo.getData(link).subscribe(movie => {
-          this.filmsNew.push(movie);
-        });
+        this.charInfo.getData(link).subscribe(
+          movie => { this.filmsNew.push(movie) }, // success path
+          error => console.log('here is the error: ', error) // error path
+          
+          );
       });
 
       console.log("Decoded the list boss: ", this.filmsNew);
     });
 
+  }
 
-
+  onSelect(char) {
+    this.router.navigate(['select/:name/', char.movie]);
+    this.charInfo.setUrl(char.url);
   }
 
 }

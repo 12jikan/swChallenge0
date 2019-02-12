@@ -16,10 +16,13 @@ export class SelectPageComponent implements OnInit {
   constructor(private charInfo: CharDataService, private router: Router) { }
 
   ngOnInit() {
-    this.charInfo.getChar().subscribe(data => {
-      this.charList = data;
-      console.log(this.charList);
-    });
+    this.charInfo.getChar().subscribe(
+      data => {
+        this.charList = data;
+        console.log(this.charList);
+      },
+      error => console.log('here is the error: ', error)  
+    );
   }
   
   // adds the characters name to the url //
