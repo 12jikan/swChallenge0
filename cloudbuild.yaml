@@ -1,16 +1,7 @@
-steps: 
-# Install
+steps:
 - name: 'gcr.io/cloud-builders/npm'
-  args: ['install']
-
-# Test (but leaving this our for now)
+  args: [ 'install' ]
 - name: 'gcr.io/cloud-builders/npm'
-  args: ['run', 'test']
-
-# Build
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['run', 'build']
-
-# Deploy
-- name: 'gcr.io/causal-smoke-231510/firebase'
-  args: ['deploy']
+  args: [ 'run', 'build', '--prod' ]
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy', '--version=1']
