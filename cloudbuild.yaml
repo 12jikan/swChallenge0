@@ -8,5 +8,5 @@ steps:
   args: ['run', 'build']
 
 # Deploy
-- name: 'gcr.io/cloud-builders/firebase'
+- name: 'gcr.io/swapps/firebase'
   args: ['deploy']
