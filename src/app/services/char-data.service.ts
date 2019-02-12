@@ -11,6 +11,7 @@ export class CharDataService {
   dirUrl;
 
   constructor(private http: HttpClient) { }
+  
   setUrl(url) {
     this.dirUrl = url;
   }

@@ -11,8 +11,13 @@
 
                     <div *ngIf="charDeets">
                         <h1 class="is-size-1 has-text-weight-light">{{ charDeets.name }}</h1>
+                        
                         <hr>
-                        <div>
+                        
+                        <div *ngIf="charDeets">
+                            <div *ngFor="let film of charDeets.films">
+                                <h1>{{ film }}</h1>
+                            </div>
                         </div>
 
                     </div>
